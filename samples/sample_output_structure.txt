@@ -1,0 +1,65 @@
+Sermon Video Automation - Sample Output Structure
+
+This is a fictional sample output structure for portfolio demonstration.
+It does not contain real sermon recordings, private church media, personal information, or production credentials.
+
+------------------------------------------------------------
+Example Completed Output
+------------------------------------------------------------
+
+03_Completed/
+├── Sermon_Video/
+│   └── 2026-04-24_sunday_sermon_final.mp4
+│
+├── CD_Audio_WAV/
+│   └── 2026-04-24_sunday_sermon_cd.wav
+│
+├── Thumbnail_Image/
+│   └── 2026-04-24_sunday_sermon_thumbnail.png
+│
+└── YouTube_Ready/
+    └── 2026-04-24_sunday_sermon/
+        ├── final.mp4
+        └── thumbnail.png
+
+------------------------------------------------------------
+File Descriptions
+------------------------------------------------------------
+
+2026-04-24_sunday_sermon_final.mp4
+- Final processed sermon video
+- Includes thumbnail intro and fade transitions
+- Intended for YouTube upload or archive use
+
+2026-04-24_sunday_sermon_cd.wav
+- Audio-only export
+- Intended for CD preparation or audio archive use
+
+2026-04-24_sunday_sermon_thumbnail.png
+- Thumbnail image generated or selected for the sermon
+
+YouTube_Ready/final.mp4
+- Copy of the final video placed in a simplified upload folder
+
+YouTube_Ready/thumbnail.png
+- Copy of the thumbnail placed with the upload-ready video
+
+------------------------------------------------------------
+Naming Convention
+------------------------------------------------------------
+
+YYYY-MM-DD_sunday_sermon_final.mp4
+YYYY-MM-DD_sunday_sermon_cd.wav
+YYYY-MM-DD_sunday_sermon_thumbnail.png
+
+Example:
+
+2026-04-24_sunday_sermon_final.mp4
+
+------------------------------------------------------------
+Portfolio Note
+------------------------------------------------------------
+
+This sample output structure is included to demonstrate how the automation workflow organizes completed media files.
+
+All file names and dates shown here are fictional examples.
