@@ -1,53 +1,61 @@
-**# sermon-video-automation
-A Python and FFmpeg workflow for preparing sermon video, thumbnail, and audio outputs.
-**# Sermon Video Automation
+# Sermon Video Automation
 
-A Python and FFmpeg workflow concept for preparing weekly sermon media outputs.
+A sanitized Python and FFmpeg workflow for reducing repetitive weekly sermon-media production work.
 
 ## Overview
 
-Sermon Video Automation is a practical media workflow project designed to reduce repetitive post-production work for weekly church sermon recordings.
+This project demonstrates how a recurring media workflow can be structured around consistent input discovery, file naming, video processing, audio export, thumbnail preparation, and upload-ready output organization.
 
-The project demonstrates how a recorded sermon video can be processed into organized output files for YouTube upload, thumbnail use, and CD audio preparation.
+## What the Project Demonstrates
 
-## Problem
+- Detecting the newest recording from an input folder
+- Creating repeatable working and output directories
+- Building standardized output names from a service date
+- Generating FFmpeg commands for video and audio processing
+- Separating configuration from execution logic
+- Supporting dry-run validation before processing large media files
+- Designing privacy-safe automation around real recurring operations
 
-Weekly sermon media production often involves repeated manual steps, including:
-
-- Finding the latest recording
-- Creating or applying a thumbnail intro
-- Adding fade-in and fade-out transitions
-- Exporting a final YouTube-ready video
-- Creating a separate audio file
-- Organizing completed files into consistent folders
-
-Doing these steps manually can be time-consuming and inconsistent, especially when the workflow is repeated every week.
-
-## Solution
-
-This project demonstrates a workflow that:
-
-- Detects the latest sermon recording
-- Creates organized output folders
-- Generates a final sermon video
-- Adds a thumbnail intro
-- Applies basic fade-in and fade-out transitions
-- Exports a CD-ready audio file
-- Copies final media into a YouTube-ready folder
-
-## Sample Workflow
+## Generalized Workflow
 
 ```text
-OBS Recording
+Recording source
       ↓
-Inbox Folder
+Input validation
       ↓
-Python Automation Script
+Working folder preparation
       ↓
-FFmpeg Processing
+Video processing and transitions
       ↓
-Final Video Output
+Audio export
       ↓
-Audio Output
+Thumbnail and metadata preparation
       ↓
-YouTube Ready Folder
+Upload-ready output package
+```
+
+## Repository Contents
+
+| Path | Description |
+|---|---|
+| `scripts/sermon_automation_sample.py` | Sanitized Python dry-run example |
+| `config/config.example.yaml` | Public-safe processing configuration |
+| `docs/workflow.md` | End-to-end workflow description |
+| `docs/file_structure.md` | Folder and output organization |
+| `docs/ffmpeg_process.md` | Generalized FFmpeg processing notes |
+| `samples/sample_output_structure.txt` | Example output layout |
+
+## Portfolio Scope
+
+This repository excludes real recordings, copyrighted media, private organization data, credentials, production paths, and upload account details. The sample code focuses on reusable workflow structure rather than production-specific content.
+
+## Current Portfolio Direction
+
+Planned public-safe improvements include:
+
+- Reading the YAML configuration directly from the sample script
+- Subprocess execution with explicit dry-run and production-safe modes
+- Input and output validation
+- Better error handling and process logging
+- Synthetic thumbnail and intro-card examples
+- Automated tests for naming and folder-generation logic
