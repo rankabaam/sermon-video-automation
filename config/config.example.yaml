@@ -1,31 +1,18 @@
-# Sermon Video Automation - Example Configuration
-#
-# This is a sample configuration file for portfolio demonstration.
-# It does not contain real church paths, credentials, recordings, or private data.
-
+# Public-safe sample configuration. All paths are relative to --root.
 project:
   name: "Sermon Video Automation"
-  description: "Sample workflow for preparing sermon video, thumbnail, and audio outputs."
-
+  display_title: "Sunday Message"
+  description: "Repeatable Python and FFmpeg media preparation workflow."
 folders:
   obs_recordings: "00_OBS_Recordings"
   inbox: "01_Inbox"
   working: "02_Working"
   completed: "03_Completed"
-
-output_folders:
-  sermon_video: "03_Completed/Sermon_Video"
-  cd_audio_wav: "03_Completed/CD_Audio_WAV"
-  thumbnail_image: "03_Completed/Thumbnail_Image"
-  youtube_ready: "03_Completed/YouTube_Ready"
-
 naming:
   date_format: "%Y-%m-%d"
   sermon_slug: "sunday_sermon"
   final_video_suffix: "final"
   audio_suffix: "cd"
-  thumbnail_suffix: "thumbnail"
-
 video:
   output_resolution: "1920x1080"
   intro_duration_seconds: 3
@@ -36,23 +23,14 @@ video:
   preset: "medium"
   audio_codec: "aac"
   audio_bitrate: "192k"
-
 audio:
-  output_format: "wav"
   sample_rate: 44100
   channels: 2
   codec: "pcm_s16le"
-
-thumbnail:
-  width: 1920
-  height: 1080
-  use_custom_thumbnail_if_available: true
-
 youtube_ready:
   copy_final_video: true
-  copy_thumbnail: true
   final_video_name: "final.mp4"
-  thumbnail_name: "thumbnail.png"
-
+demo:
+  synthetic_duration_seconds: 1800
 privacy:
-  note: "This configuration uses fictional example paths and generic settings only."
+  note: "No recordings, credentials, upload accounts, or production paths are included."
