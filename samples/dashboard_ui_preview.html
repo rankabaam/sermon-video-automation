@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Media Workflow — v1.4 UI Portfolio Preview</title>
+<style>
+:root{--navy:#244048;--mint:#66da8f;--orange:#f78234;--paper:#f5f8f7}
+*{box-sizing:border-box}body{background:var(--paper);color:#17313b;font:15px/1.5 system-ui,sans-serif;margin:0}
+header{background:var(--navy);padding:20px 5%;color:white}header strong{font-size:23px}
+.container{max-width:1100px;margin:24px auto;padding:0 17px}
+.layout{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}.panel{background:white;border-radius:14px;padding:20px;border:1px solid #dce6e2}
+h2{margin-top:0;font-size:19px}.field{display:block;margin:14px 0}select{width:100%;padding:9px;border:1px solid #9eb2b1;border-radius:7px}
+label{display:block;margin:9px 0}button{border:0;border-radius:8px;padding:11px 14px;background:var(--navy);color:white;cursor:pointer}
+button.secondary{background:var(--orange);color:#142626}button:disabled{background:#abb6b7}
+.pill{font-size:12px;background:#d9f5e4;padding:3px 8px;border-radius:12px;color:#145738}
+progress{width:100%;height:17px;accent-color:#2a8c53}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eaf0ef;padding:14px;border-radius:8px;min-height:100px}
+.notice{font-size:13px;color:#48635f}
+@media(max-width:700px){.layout{grid-template-columns:1fr}header{padding:17px}}
+</style></head><body><header><strong>Media Workflow</strong><div>v1.4 UI portfolio preview · fictional data · no external publishing</div></header>
+<main class="container"><div class="layout"><section class="panel"><h2>Run configuration</h2>
+<label class="field" for="scope">Operation scope<select id="scope"><option value="edit_only">Edit only</option>
+<option value="video_only">Prepare video publishing</option><option value="full_publish">Full publishing simulation</option></select></label>
+<label class="field" for="visibility">Video visibility<select id="visibility"><option>private</option><option selected>unlisted</option><option>public</option></select></label>
+<fieldset><legend>Fictional playlist selection</legend>
+<label><input type="checkbox" value="DEMO-PL-A" checked> Weekly messages</label>
+<label><input type="checkbox" value="DEMO-PL-B"> Community media</label></fieldset>
+<p class="notice">Synthetic identifiers only. No YouTube or WordPress access. Selecting Public does not publish anything.</p>
+<button id="start">Simulate workflow</button><button class="secondary" id="reset">Reset preview</button>
+</section><section class="panel"><h2>Run status <span class="pill" id="label">Ready</span></h2>
+<p>Selected scope: <strong id="selected">Edit only</strong></p><progress id="progress" max="100" value="0"></progress><p id="pct">0%</p>
+<h3>Result</h3><pre id="result" aria-live="polite">Ready for a local-only demonstration.</pre>
+<p class="notice">Real uploads, public-embed checks, token refresh, and retries require a separate authorized system.</p></section></div></main>
+<script>
+const $=id=>document.getElementById(id);let timer=null,step=0;
+function reset(){if(timer)clearInterval(timer);timer=null;step=0;$("progress").value=0;$("pct").textContent="0%";$("label").textContent="Ready";$("start").disabled=false;$("result").textContent="Ready for a local-only demonstration.";}
+$("reset").onclick=reset;
+$("start").onclick=()=>{
+ reset();$("start").disabled=true;const scope=$("scope").value;
+ const chosen=[...document.querySelectorAll('input[type="checkbox"]:checked')].map(el=>el.value);
+ $("selected").textContent=$("scope").selectedOptions[0].textContent;
+ $("label").textContent="Simulating";
+ const steps=scope==="edit_only"?["Input validated","Synthetic media prepared","Complete"]:
+ scope==="video_only"?["Input validated","Synthetic edit prepared","Video draft simulated","Complete"]:
+ ["Input validated","Synthetic edit prepared","Video draft simulated","Embed state simulated","Complete"];
+ $("result").textContent="Fictional playlist IDs: "+(chosen.join(", ")||"none")+"\nVisibility: "+$("visibility").value+"\n";
+ timer=setInterval(()=>{step++;$("progress").value=Math.round(step/steps.length*100);
+ $("pct").textContent=$("progress").value+"%";$("result").textContent+="\n"+steps[step-1];
+ if(step>=steps.length){clearInterval(timer);timer=null;$("label").textContent="Demo complete";$("start").disabled=false;}},350);
+};
+$("scope").addEventListener("change",()=>{$("selected").textContent=$("scope").selectedOptions[0].textContent});
+</script></body></html>
