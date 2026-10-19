@@ -2,6 +2,23 @@
 
 A sanitized, config-driven Python and FFmpeg workflow for reducing repetitive weekly sermon-media production work.
 
+## Portfolio Update: v1.4 UI Preview and Safe Recovery Example (October 2026)
+
+To reflect later prototype work without publishing any production integration, this repository now includes:
+
+- [Interactive static dashboard](samples/dashboard_ui_preview.html): fictional scopes, playlist-ID checkboxes, visibility choice, sample progress and status. All simulated in-browser.
+- [Offline publication-state model](src/publish_preview.py): validates a fictional iframe, attempts **one in-place repair** for the *same* synthetic post/video IDs, and atomically writes a local status snapshot.
+- [Scope, limitations and run commands](docs/v1_4_preview_portfolio.md), plus additional unit tests.
+
+```bash
+python -m src.publish_preview --scenario recover
+python -m unittest discover -s tests -v
+```
+
+**This is an independently authored demonstration, not the private v1.4 implementation.** Neither the public demo nor the earlier UI preview establishes successful live YouTube uploading, WordPress publication, or weekly production acceptance.
+
+---
+
 ## Runnable Demo
 
 ```bash
